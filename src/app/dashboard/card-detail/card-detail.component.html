@@ -1,0 +1,31 @@
+<mat-card-content>
+    <div class="row">
+        <div class="col-4 text-left">
+            <button mat-icon-button aria-label="Example icon button with a vertical three dot icon"
+                (click)="previousPage()">
+                <mat-icon>arrow_back_ios</mat-icon>
+            </button>
+        </div>
+        <div class="col-4">
+            <mat-card-header>
+                <h3>MyCards</h3>
+            </mat-card-header>
+        </div>
+        <div class="col-4"></div>
+
+
+    </div>
+    <div class="mt-15" *ngFor="let cardDetail of userCardData">
+
+        <mat-card>
+
+            <mat-card-content>
+                <p>Card Number: {{ cardDetail.cardNumber }}</p>
+                <p>Expiration Date: {{ cardDetail.expirationDate }}</p>
+                <button class="mt-20 mr-15" mat-raised-button color="accent" (click)="Edit()">Edit Card</button>
+                <button class="mt-20" mat-raised-button color="warn" (click)="Delete()">Delet Card</button>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <button class="mt-20" mat-raised-button color="primary" (click)="AddCard()">Add Card</button>
+</mat-card-content>
