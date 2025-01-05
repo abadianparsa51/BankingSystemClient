@@ -1,0 +1,21 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { DeletCardDialogComponent } from './delet-card-dialog.component';
+
+describe('DeletCardDialogComponent', () => {
+  let component: DeletCardDialogComponent;
+  let fixture: ComponentFixture<DeletCardDialogComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [DeletCardDialogComponent]
+    });
+    fixture = TestBed.createComponent(DeletCardDialogComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

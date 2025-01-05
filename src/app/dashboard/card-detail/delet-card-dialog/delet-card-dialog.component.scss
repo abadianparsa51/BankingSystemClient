@@ -1,0 +1,25 @@
+.dialog-content {
+    padding: 20px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.confirmation {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.dialog-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+button {
+    width: 45%;
+}

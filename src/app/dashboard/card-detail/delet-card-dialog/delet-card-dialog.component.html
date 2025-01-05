@@ -1,0 +1,14 @@
+<mat-dialog-content>
+    <h2 mat-dialog-title>Delete Card</h2>
+    <p>Are you sure you want to delete this card?</p>
+    <mat-card-content class="dialog-content">
+        <div class="confirmation">
+
+            <p>Card ID: {{ data.id }}</p>
+        </div>
+        <div class="dialog-actions">
+            <button mat-raised-button color="primary" (click)="onCancel()">Cancel</button>
+            <button mat-raised-button color="warn" (click)="Delete(data.id)">Delete</button>
+        </div>
+    </mat-card-content>
+</mat-dialog-content>

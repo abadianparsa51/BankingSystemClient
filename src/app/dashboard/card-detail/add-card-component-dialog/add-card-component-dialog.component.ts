@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CardService } from 'src/app/services/card.service';
+import { MatDialogRef } from '@angular/material/dialog'; // Add this import
 
 @Component({
   selector: 'app-add-card-component-dialog',
@@ -15,15 +16,15 @@ export class AddCardComponentDialogComponent {
     ExpirationDate: new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(5)]),
   });
 
-  constructor(private cardService: CardService) { }
+  constructor(private cardService: CardService, public dialogRef: MatDialogRef<AddCardComponentDialogComponent>) { }
 
-  // تابع ارسال داده به بک‌اند
   addCard() {
     if (this.formData.valid) {
       this.cardService.AddUserCardDetail(this.formData.value).subscribe({
         next: (response) => {
-          console.log('Card added successfully:', response);
+          console.log('Card added successfully:', response.message);
           alert('Card added successfully!');
+          this.dialogRef.close(true); // Close the dialog and pass 'true' to indicate success
         },
         error: (error) => {
           console.error('Error adding card:', error);

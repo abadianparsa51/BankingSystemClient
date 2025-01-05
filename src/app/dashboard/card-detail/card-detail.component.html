@@ -12,20 +12,23 @@
             </mat-card-header>
         </div>
         <div class="col-4"></div>
-
-
     </div>
+
     <div class="mt-15" *ngFor="let cardDetail of userCardData">
-
         <mat-card>
-
             <mat-card-content>
                 <p>Card Number: {{ cardDetail.cardNumber }}</p>
                 <p>Expiration Date: {{ cardDetail.expirationDate }}</p>
-                <button class="mt-20 mr-15" mat-raised-button color="accent" (click)="Edit()">Edit Card</button>
-                <button class="mt-20" mat-raised-button color="warn" (click)="Delete()">Delet Card</button>
+
+                <!-- Edit and Delete Buttons -->
+                <button class="mt-20 mr-15" mat-raised-button color="accent" (click)="Edit(cardDetail.id)">Edit
+                    Card</button>
+                <button class="mt-20" mat-raised-button color="warn" (click)="Delete(cardDetail.id)">Delete
+                    Card</button>
             </mat-card-content>
         </mat-card>
     </div>
+
+    <!-- Add Card Button -->
     <button class="mt-20" mat-raised-button color="primary" (click)="AddCard()">Add Card</button>
 </mat-card-content>
