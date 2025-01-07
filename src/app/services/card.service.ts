@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 export class CardService {
     cardDetailUrl = "CardDetail/user-cards";
     addCardUrl = "CardDetail/add";
-    editCardUrl = "CardDetail/update";  // Update URL for Edit
+    editCardUrl = "CardDetail/edit";  // Update URL for Edit
     deleteCardUrl = "CardDetail/delete"; // Delete URL for Delete
 
     constructor(private http: HttpClient) { }

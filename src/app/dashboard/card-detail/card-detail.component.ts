@@ -6,6 +6,7 @@ import { Location } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { AddCardComponentDialogComponent } from './add-card-component-dialog/add-card-component-dialog.component';
 import { DeletCardDialogComponent } from './delet-card-dialog/delet-card-dialog.component';
+import { EditCardDialogComponent } from './edit-card-dialog/edit-card-dialog.component';
 
 
 @Component({
@@ -57,21 +58,28 @@ export class CardDetailComponent implements OnInit {
   }
 
   Edit(id: number) {
-    const dialogRef = this.dialog.open(AddCardComponentDialogComponent, {
-      data: { id }, // Pass the current card data
-      height: '100%',
-      width: '100%',
-      maxWidth: '100vw',
-      maxHeight: '68vh',
-      position: { bottom: '0rem' },
-      hasBackdrop: true
-    });
+    // Assuming `userCardData` contains the data
+    const cardToEdit = this.userCardData.find(card => card.id === id);
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.getUserEmail(); // Reload card details after update
-      }
-    });
+    if (cardToEdit) {
+      const dialogRef = this.dialog.open(EditCardDialogComponent, {
+        data: { id: cardToEdit.id, card: cardToEdit },  // Pass the card data
+        height: '100%',
+        width: '100%',
+        maxWidth: '100vw',
+        maxHeight: '68vh',
+        position: { bottom: '0rem' },
+        hasBackdrop: true
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          this.getUserEmail(); // Reload card details after update
+        }
+      });
+    } else {
+      console.log('Card not found in user card data');
+    }
   }
 
   Delete(id: number) {
